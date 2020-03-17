@@ -7,6 +7,7 @@
       <div class="col-xs-12 col-sm-8 offset-sm-2">
         <h2>Sign up</h2>
         <div class="form-inputs">
+          <%= f.input :name %>
           <%= f.input :email,
                       required: true,
                       autofocus: true,
@@ -20,9 +21,11 @@
                       input_html: { autocomplete: "new-password" } %>
         </div>
 
+
         <div class="btn btn-outline-primary btnn">
           <%= f.button :submit, "Sign up" %>
         </div>
+
 
        <%# render "devise/shared/links" to be used if we need an extra login btn%>
       <% end %>

@@ -1,12 +1,17 @@
-<div class="card-trip">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-  <div class="card-trip-infos">
-    <div>
-      <h2><%= @nanny.description %></h2>
-      <p></p>
-    </div>
-    <h2 class="card-trip-pricing"><%=@nanny.price_per_hour%></h2>
-    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+<div class="d-flex">
+  <div>
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" class="card-image"/>
+  </div>
+  <div class='p-5'>
+    <h2><%= @nanny.description %></h2>
+    <p><%=@nanny.price_per_hour%>€</p>
+    <div><%= link_to "Book me", root_path, class: "btn btn-primary" %></div>
   </div>
 </div>
-<p><%= link_to 'Back', nannies_path %></p>
+<p><%= link_to 'Back', nannies_path, class: "btn btn-secondary" %></p>
+
+
+
+
+
+

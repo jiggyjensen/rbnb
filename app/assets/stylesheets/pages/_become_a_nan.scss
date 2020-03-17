@@ -2,20 +2,26 @@
   background-size: cover;
   height: 100vh;
   padding: 20px;
-
 }
 
 .black_bgr {
-
   padding: 20px;
   background-color: rgba(0,0,0, 0.3);
-
 }
 
-.btn_signup {
+.btn_submit {
   border-color: #EBD8AC;
+  background-color: transparent;
 }
 
-.btn_signup:hover {
+.btn_submit:hover {
   background-color: #EBD8AC;
+}
+
+.short_input {
+  input {
+    width: 70%;
+
+  }
+
 }

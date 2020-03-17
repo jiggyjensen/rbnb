@@ -1,20 +1,29 @@
+<div class="sign-up-wrapper" style="background-image: url(https://res.cloudinary.com/dvallavgs/image/upload/v1584457046/woman-holding-baby-while-sitting-on-fur-bean-bag-698878_rtfmhk.jpg)">
+  <div class="container padded">
+    <h1 class="text-center">Become a nanny!</h1>
+    <div class="row black_bgr">
+      <div class="col-xs-12 col-md-6 col-md-offset-3">
 
-<div class="container padded">
-  <h1 class="text-center">Become a nanny!</h1>
-  <div class="row">
-    <div class="col-xs-12 col-md-6 col-md-offset-3">
         <%= simple_form_for @nanny do |f| %>
-        <%= f.input :age %>
+        <div class="short_input">
+        <%= f.input :age, input_html: { min: "0" } %>
         <%= f.input :description %>
-        <%= f.input :experience_level %>
-        <%= f.input :price_per_hour %>
+        <%= f.input :experience_level, input_html: { min: "0", max: "5" } %>
+        <%= f.input :price_per_hour, input_html: { min: "0" } %>
         <%= f.input :certification %>
         <%= f.input :photo, as: :file %>
-        <%= f.submit "Submit", class: "btn btn-primary" %>
-        <% end %>
-        <div class="pad20">
-          <%= link_to "Go back", nannies_path, class: "btn btn-warning btn-sm" %>
+
         </div>
+        <div class="text-center w-75">
+        <%= f.submit "Submit", class: "btn btn-primary btn_submit" %>
+        </div>
+
+        <% end %>
+
+        <div class="pad20 text-center w-75">
+          <%= link_to "Go back", nannies_path, class: "btn btn-warning btn-sm btn_submit" %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

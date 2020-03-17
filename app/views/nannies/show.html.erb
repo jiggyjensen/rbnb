@@ -4,6 +4,9 @@
   </div>
   <div class='p-5'>
     <h2><%= @nanny.description %></h2>
+    <% if @nanny.photo.attached? %>
+      <%= cl_image_tag @nanny.photo.key, height: 300, width: 400, crop: :fill %>
+    <% end %>
     <p><%=@nanny.price_per_hour%>€</p>
     <div><%= link_to "Book me", root_path, class: "btn btn-primary" %></div>
   </div>

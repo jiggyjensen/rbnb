@@ -2,11 +2,17 @@
 <div class="row">
 
 <% @nannies.each do |nanny| %>
+
 <div class="col-3">
   <div class="card" style="width: 18rem;">
   <img class="card-img-top" src="..." alt="Card image cap">
    <div class="card-body">
     <h5 class="card-title">Nanny description</h5>
+  <div class="card">
+    <%= link_to nanny_path(nanny) do %>
+    <% if nanny.photo.attached? %>
+    <%= cl_image_tag nanny.photo.key, height: 200, crop: :fill %>
+    <% end %>
     <p><%= nanny.description %></p>
     <p><%= nanny.price_per_hour %> €</p>
     <p><%= nanny.age %> years old</p>

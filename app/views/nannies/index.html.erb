@@ -2,6 +2,9 @@
 <% @nannies.each do |nanny| %>
   <div class="card">
     <%= link_to nanny_path(nanny) do %>
+    <% if nanny.photo.attached? %>
+    <%= cl_image_tag nanny.photo.key, height: 200, crop: :fill %>
+    <% end %>
     <p><%= nanny.description %></p>
     <p><%= nanny.price_per_hour %> €</p>
     <p><%= nanny.age %> years old</p>

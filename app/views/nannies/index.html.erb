@@ -1,0 +1,11 @@
+<div class="cards">
+<% @nannies.each do |nanny| %>
+  <div class="card">
+    <%= link_to nanny_path(nanny) do %>
+    <p><%= nanny.description %></p>
+    <p><%= nanny.price_per_hour %> €</p>
+    <p><%= nanny.age %> years old</p>
+    <% end %>
+  </div>
+<% end %>
+</div>

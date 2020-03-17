@@ -25,6 +25,6 @@ class NanniesController < ApplicationController
   private
 
   def nannies_params
-    params.require(:nanny).permit(:description, :age, :experience_level, :price_per_hour, :certification)
+    params.require(:nanny).permit(:description, :age, :experience_level, :price_per_hour, :certification, :photo)
   end
 end

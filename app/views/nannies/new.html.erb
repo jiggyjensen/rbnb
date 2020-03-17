@@ -1,0 +1,19 @@
+
+<div class="container padded">
+  <h1 class="text-center">Become a nanny!</h1>
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+        <%= simple_form_for @nanny do |f| %>
+        <%= f.input :age %>
+        <%= f.input :description %>
+        <%= f.input :experience_level %>
+        <%= f.input :price_per_hour %>
+        <%= f.input :certification %>
+        <%= f.submit "Submit", class: "btn btn-primary" %>
+        <% end %>
+        <div class="pad20">
+          <%= link_to "Go back", nannies_path, class: "btn btn-warning btn-sm" %>
+        </div>
+    </div>
+  </div>
+</div>

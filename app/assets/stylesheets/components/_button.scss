@@ -1,4 +1,4 @@
-.btn {
+.btn-green {
   color: white;
   padding: 8px 24px;
   border-radius: 4px;
@@ -9,6 +9,10 @@
 }
 
 .btn:hover {
-  background: #1BCB7F;
   color: white;
+}
+
+.btn .btn-secondary {
+  padding: 100px;
+  margin-left: 50px;
 }

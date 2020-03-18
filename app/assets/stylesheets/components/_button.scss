@@ -28,3 +28,25 @@
   margin-left: 12px;
   padding: 10px;
 }
+
+
+.btn_index {
+  text-decoration: none;
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #e6a221;
+  transition: background 0.3s ease;
+  font-weight: bolder;
+  margin-top: 15px;
+  transition: background 0.3s ease;
+  width: 100%;
+}
+
+.btn_index:hover {
+  color: rgb(244,244,244);
+  text-decoration: none;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+  transition: background 0.3s ease;
+
+}

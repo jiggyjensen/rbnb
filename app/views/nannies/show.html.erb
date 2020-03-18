@@ -6,7 +6,15 @@
   </div>
   <div class='p-5'>
     <h2><%= @nanny.description %></h2>
-    <p><%=@nanny.price_per_hour%>€</p>
+    <p><strong>Rate: </strong><%=@nanny.price_per_hour%>€ per hour</p>
+    <% if @nanny.certification!="" %>
+    <p><strong>Certified in: </strong><%= @nanny.certification %></p>
+    <% else %>
+    <%= "" %>
+    <% end %>
+    <p><strong>Age: </strong><%= @nanny.age %> years old</p>
+    <p><strong>Location: </strong><%= @nanny.city %></p>
+
     <div><%= link_to "Book me", root_path, class: "btn btn-primary" %></div>
   </div>
 </div>

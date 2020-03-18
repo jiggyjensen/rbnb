@@ -23,7 +23,7 @@ class NanniesController < ApplicationController
     @nanny = Nanny.new(nannies_params)
     @nanny.user = current_user
     if @nanny.save
-      redirect_to nannies_path(@nanny), notice: 'nanny created! Welcome'
+      redirect_to nanny_path(@nanny), notice: 'nanny created! Welcome'
     else
       render :new
     end

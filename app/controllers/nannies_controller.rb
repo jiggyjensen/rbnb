@@ -1,7 +1,14 @@
 class NanniesController < ApplicationController
 
   def index
-    @nannies = Nanny.all
+    @nannies = Nanny.geocoded #returns flats with coordinates
+
+    @markers = @nannies.map do |nanny|
+      {
+        lat: nanny.latitude,
+        lng: nanny.longitude
+      }
+    end
   end
 
   def show
@@ -25,6 +32,6 @@ class NanniesController < ApplicationController
   private
 
   def nannies_params
-    params.require(:nanny).permit(:description, :age, :experience_level, :price_per_hour, :certification, :photo)
+    params.require(:nanny).permit(:city, :description, :age, :experience_level, :price_per_hour, :certification, :photo)
   end
 end

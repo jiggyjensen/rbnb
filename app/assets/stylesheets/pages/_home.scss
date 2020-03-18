@@ -1,5 +1,4 @@
 // Specific CSS for your home-page
-// Place all the styles related to the cocktails controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
@@ -7,6 +6,7 @@
   font-family: 'Playfair Display', serif;
   color: white;
   font-weight: bolder;
+  text-shadow: 3px 2px #000000;
 }
 
 h2, h3 {
@@ -18,27 +18,15 @@ h2, h3 {
 .hero > article > p {
   font-family: 'Source Sans Pro', sans-serif;
   color: white;
-  margin: 5px;
   font-weight: bolder;
   font-size: 23px;
+  text-shadow: 3px 2px #000000;
 }
 
 .hero {
   background: url('https://images.unsplash.com/photo-1448301566816-a036b4240d58?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80') center;
   background-size: cover;
-  padding: 10rem 8rem;
-}
-
-footer {
-  background-color: #333;
-  color: white;
-  padding: 30px;
-  text-align: center;
-  font-size: .75rem;
-  bottom: 0px;
-  position: fixed;
-  height: 40px;
-  width: 100%;
+  padding: 16rem 11rem;
 }
 
 body {

@@ -6,6 +6,7 @@
 
         <%= simple_form_for @nanny do |f| %>
         <div class="short_input">
+        <%= f.input :city %>
         <%= f.input :age, input_html: { min: "0" } %>
         <%= f.input :description %>
         <%= f.input :experience_level, input_html: { min: "0", max: "5" } %>

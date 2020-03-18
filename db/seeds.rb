@@ -5,3 +5,25 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'faker'
+
+puts 'Destroying all nannies...'
+Nanny.destroy_all
+
+sleep(2)
+
+puts 'Creating new nannies from Le Wagon alumni...'
+
+sleep(2)
+
+10.times do
+  Nanny.create(
+    price_per_hour: rand(10..45),
+    description: Faker::Superhero.name,
+    age: rand(18..60),
+    city: Faker::Nation.capital_city
+  )
+end
+
+puts 'Finished!'

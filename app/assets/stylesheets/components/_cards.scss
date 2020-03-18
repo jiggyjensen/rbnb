@@ -14,3 +14,62 @@
   display: block;
   margin: 8px;
 }
+
+.card-img-top {
+  height: 250px;
+  width: 100%;
+  object-fit: cover;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+}
+
+.hover-img {
+  position: relative;
+}
+
+
+a {
+  color: #444c54;
+}
+
+
+.card-nanny {
+  background-color: white;
+  border-radius: 8px;
+
+}
+
+
+.card-description {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(29, 106, 154, 0.72);
+  color: #fff;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .2s, visibility .2s;
+}
+
+.hover-img:hover .card-description {
+  visibility: visible;
+  opacity: 1;
+}
+
+.price {
+  position: absolute;
+  color: white;
+  background-color: #dea334cc;
+  padding: 13px;
+  border-radius: 26%;
+  top: 180px;
+  left: 20px;
+}
+
+.user-name {
+  margin-bottom: 10px;
+  font-family: comic sans ms;
+  font-weight: bold;
+}

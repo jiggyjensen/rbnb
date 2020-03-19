@@ -15,6 +15,7 @@
   <div class="row">
     <% @nannies.each do |nanny| %>
     <div class="col-4">
+      <%= link_to nanny_path(nanny) do  %>
       <div class="card-nanny">
         <div class="hover-img">
           <% if nanny.photo.attached? %>
@@ -28,10 +29,11 @@
         <div class="card-body">
           <div class="card-see-more text-center">
             <p class="user-name"><%= nanny.user.name %></p>
-            <%= link_to "See More", nanny_path(nanny), class: "btn btn-primary btn-black btn-submit" %>
+            <%#= link_to "See More", nanny_path(nanny), class: "btn btn-primary btn-black btn-submit" %>
           </div>
         </div>
       </div>
+      <% end %>
     </div>
       <% end %>
     </div>

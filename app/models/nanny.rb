@@ -1,4 +1,5 @@
 class Nanny < ApplicationRecord
+  has_many :bookings
   belongs_to :user
   validates :user, uniqueness: true
   validates :price_per_hour, :description, :age, :city, presence: true
@@ -12,4 +13,5 @@ class Nanny < ApplicationRecord
   using: {
     tsearch: { prefix: true }
   }
+
 end

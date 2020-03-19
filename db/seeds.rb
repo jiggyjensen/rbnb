@@ -28,6 +28,7 @@ puts 'Creating new nannies from Le Wagon alumni...'
 sleep(2)
 
 users = []
+cities = ["Barcelona", "Dakar", "Brussels", "New York", "Berlin", "Tel Aviv", "Cape Town", "Sevilla", "Amsterdam"]
 
 40.times do
   users << User.create(
@@ -39,9 +40,9 @@ users.each do |user|
   nanny = Nanny.create(
     user: user,
     price_per_hour: rand(10..45),
-    description: Faker::Superhero.name,
+    description: Faker::TvShows::BojackHorseman.quote,
     age: rand(18..60),
-    city: Faker::Nation.capital_city)
+    city: cities.sample)
   url = "https://kitt.lewagon.com/placeholder/users/random"
   alumni = URI.open(url)
   nanny.photo.attach(io: handle_string_io_as_file(alumni, 'image.png'), filename: "Student #{user.id}", content_type: 'image/png')

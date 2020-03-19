@@ -17,9 +17,11 @@ def handle_string_io_as_file(io, filename)
   file.open
 end
 
-puts 'Destroying all users and nannies...'
+puts 'Destroying all users, bookings, and nannies...'
+Booking.destroy_all
 Nanny.destroy_all
 User.destroy_all
+
 
 sleep(2)
 puts 'Creating new nannies from Le Wagon alumni...'
@@ -27,7 +29,7 @@ sleep(2)
 
 users = []
 
-20.times do
+40.times do
   users << User.create(
     email: Faker::Internet.email,
     password: Faker::Internet.password,

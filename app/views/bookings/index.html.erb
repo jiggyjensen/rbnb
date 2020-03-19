@@ -1,61 +1,66 @@
 <% if current_user.nanny %>
+
+
   <div class="container">
     <div class="row">
       <div class="col">
         <% if current_user.nanny.bookings.any? %>
-      <h1> see your bookings </h1>
-        <% @bookings.each do |f| %>
-          <div class="card-product">
-            <% if f.photo.attached? %>
-              <%= cl_image_tag f.photo.key, height: 300, width: 400, crop: :fill %>
-            <% else %>
-                 <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-            <% end %>
-            <div class="card-product-infos">
-              <h2><%= f.user.name %></h2>
-              <p><%= f.message %></p>
-              <%= f.kids_number %>
-              <%= f.start_date.strftime("%m-%e-%y %H:%M") %>
-              <%= f.end_date.strftime("%m-%e-%y %H:%M") %>
-              <%= f.status %>
-              <%= link_to("accept", accept_booking_path(f), method: :patch) %>
-              <%= link_to("reject", reject_booking_path(f), method: :patch) %>
-            </div>
+          <h1 class="text-center my-2"> dashboard </h1>
+          <br>
+          <div class="avatar-test">
+          <% @bookings.each do |f| %>
+            <div class="notification">
+              <% if f.photo.attached? %>
+                <%= cl_image_tag f.photo.key, class:"avatar-large", height: 300, width: 400, crop: :fill %>
+              <% else %>
+                <img src='https://kitt.lewagon.com/placeholder/users/random' class="avatar-large" />
+              <% end %>
+              <div class="notification-content">
+                <p><small> from <%= f.start_date.strftime("%m-%e-%y %H:%M") %> until <%= f.end_date.strftime("%m-%e-%y %H:%M") %> </small></p>
+                <p><%= f.message %> <strong>"<%= f.user.name %>"</strong> kids: <%= f.kids_number %> </p>
+              </div>
+
+              <div class="notification-actions">
+                <a><%= link_to("accept", accept_booking_path(f), method: :patch) %> <i class="fas fa-pencil-alt"></i></a>
+                <a><%= link_to("reject", reject_booking_path(f), method: :patch) %> <i class="far fa-trash-alt"></i></a>
+              </div>
           </div>
-
-         <br>
-        <% end %>
-        <% else %>
+          <br>
+          <% end %>
+        </div>
+      <% else %>
         <p> you have no bookings yet ... </p>
-
-        <% end %>
-
+      <% end %>
       </div>
     </div>
   </div>
+
 <% else %>
+
   <div class="container">
     <div class="row">
       <div class="col">
-      <h1> see your bookings </h1>
-        <% @request_bookings.each do |f| %>
-          <div class="card-product">
-            <% if f.photo.attached? %>
-              <%= cl_image_tag f.photo.key, height: 300, width: 400, crop: :fill %>
-            <% else %>
-                 <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-            <% end %>
-            <div class="card-product-infos">
-              <h2><%= f.nanny.user.name %></h2>
-              <p><%= f.nanny.description %></p>
-              <%= f.start_date.strftime("%m-%e-%y %H:%M") %>
-              <%= f.end_date.strftime("%m-%e-%y %H:%M") %>
-              <%= f.status %>
+        <h1 class="text-center my-2"> dashboard </h1>
+        <br>
+        <div class="avatar-test">
+          <% @request_bookings.each do |f| %>
+            <div class="notification">
+              <% if f.photo.attached? %>
+                <%= cl_image_tag f.photo.key, class:"avatar-large", height: 300, width: 400, crop: :fill %>
+              <% else %>
+                <img src='https://kitt.lewagon.com/placeholder/users/random' class="avatar-large" />
+              <% end %>
+              <div class="notification-content">
+                  <p><small> from <%= f.start_date.strftime("%m-%e-%y %H:%M") %> until <%= f.end_date.strftime("%m-%e-%y %H:%M") %> </small></p>
+                  <p><%= f.nanny.description %> <strong>"<%= f.nanny.user.name %>"</strong></p>
+              </div>
+              <div class="notification-actions">
+                  <a href="#"><%= f.status %> <i class="fas fa-pencil-alt"></i></a>
+              </div>
             </div>
-          </div>
-
-         <br>
-        <% end %>
+            <br>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

@@ -42,6 +42,7 @@ users.each do |user|
     price_per_hour: rand(10..45),
     description: Faker::TvShows::BojackHorseman.quote,
     age: rand(18..60),
+    rating: rand(3..5),
     city: cities.sample)
   url = "https://kitt.lewagon.com/placeholder/users/random"
   alumni = URI.open(url)

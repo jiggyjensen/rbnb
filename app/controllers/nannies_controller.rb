@@ -2,22 +2,33 @@ class NanniesController < ApplicationController
 
   def index
     @nannies = Nanny.geocoded #returns flats with coordinates
-
-    @markers = @nannies.map do |nanny|
+      if params[:query].present?
+      @nannies = Nanny.search_by_city(params[:query])
+      @markers = @nannies.map do |nanny|
       {
         lat: nanny.latitude,
         lng: nanny.longitude
       }
+      end
+      else
+        @markers = @nannies.map do |nanny|
+      {
+        lat: nanny.latitude,
+        lng: nanny.longitude
+      }
+    end
     end
   end
 
   def show
     @nanny = Nanny.find(params[:id])
     @markers = [{
+
       lat: @nanny.latitude,
       lng: @nanny.longitude
     }]
   end
+
 
   def new
     @nanny = Nanny.new

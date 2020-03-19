@@ -1,19 +1,16 @@
 <div class="sign-up-wrapper" style="background-image: url(https://res.cloudinary.com/dvallavgs/image/upload/v1584457046/woman-holding-baby-while-sitting-on-fur-bean-bag-698878_rtfmhk.jpg)">
-  <div class="container padded">
-    <h1 class="text-center">Book your nanny!</h1>
-    <div class="row">
-      <div class="col-xs-12 col-md-4 col-md-offset-3  black_bgr">
-
-        <%= simple_form_for @booking do |f| %>
+  <div class="container mx-0 h-100">
+    <div class="row h-100">
+      <div class="col-xs-12 col-md-6 offset-md-1 black_bgr my-auto">
+       <h1 class="text-center">Book your nanny!</h1>
+        <%= simple_form_for [@nanny, @booking] do |f| %>
         <div class="short_input">
-        <%= f.input :message %>
+        <%= f.input :address %>
         <%= f.input :kids_number, input_html: { min: "0" } %>
-        <%= f.input :description %>
-        <%= f.input :experience_level, input_html: { min: "0", max: "5" } %>
-        <%= f.input :price_per_hour, input_html: { min: "0" } %>
-        <%= f.input :certification %>
-        <%= f.input :photo, as: :file %>
-
+        <%= f.input :message %>
+        <%= f.input :start_date %>
+        <%= f.input :end_date %>
+        <%= f.input :photo, as: :file, label: "choose a picture of your kids!" %>
         </div>
         <div class="text-center">
         <%= f.submit "Submit", class: "btn btn-primary btn_submit w-100" %>

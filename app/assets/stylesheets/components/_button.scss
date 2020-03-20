@@ -57,6 +57,25 @@ background-color: #ddac42;
 background-color: #ddac42;
     border-color: #ddac42;
 }
+
+.btn-search {
+  background-color: transparent;
+  margin-top: 16px;
+  padding: 10px;
+  color: black;
+  border-radius: 5px;
+}
+
+.btn-search:hover {
+  background-color: #ddac42;
+  opacity: 0.8;
+  margin-top: 16px;
+  padding: 10px;
+  color: white;
+  border-radius: 5px;
+}
+
+
 // .btn-light {
 //   margin-top: 15px;
 //   margin-left: 12px;

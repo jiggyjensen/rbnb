@@ -57,6 +57,12 @@
               <div class="notification-actions <%= f.color %>">
                   <a href="#"><%= f.status %> </a>
               </div>
+              <% if f.review %>
+              <%= f.review.content %>
+              <%= f.review.rating %>
+              <% else %>
+              <%= render 'reviews/form', booking: f, review: @review %>
+              <% end %>
             </div>
             <br>
           <% end %>

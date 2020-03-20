@@ -24,8 +24,20 @@
         </div>
       <div><%= link_to "Book now!", new_nanny_booking_path(@nanny), class: "btn btn-success w-100" %></div>
       <p><%= link_to 'Back to all nannies', nannies_path, class: "btn btn-primary btn-black btn-submit w-100" %></p>
-
-      </div>
+    <br>
+    <div class="reviews">
+      <h2>Reviews</h2>
+    <% @nanny.reviews.each do |review|%>
+    <div class="review">
+    <p><strong><%= review.booking.user.name %> says:</strong></p>
+    <p><%= review.content %></p>
+    <% review.rating.times do %>
+    <i class="fas fa-star m-1 "></i>
+    <% end %>
+    </div>
+    <% end %>
+    </div>
+  </div>
     </div>
       <div
         id="map"
@@ -35,9 +47,5 @@
       ></div>
     </div>
 
-<% @nanny.reviews.each do |review|%>
-<%= review.content %>
-<%= review.rating %>
-<% end %>
 
 

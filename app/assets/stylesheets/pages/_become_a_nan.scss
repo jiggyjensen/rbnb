@@ -1,5 +1,9 @@
 .sign-up-wrapper {
   background-size: cover;
+  height: 100vh;
+}
+
+#height_adj_banner {
   height: calc(100vh - 102px);
 }
 

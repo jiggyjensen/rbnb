@@ -20,11 +20,14 @@
                   <p><small> from <%= booking.start_date.strftime("%m-%e-%y %H:%M") %> until <%= booking.end_date.strftime("%m-%e-%y %H:%M") %> </small></p>
                   <p><%= booking.message %> <strong>"<%= booking.user.name %>"</strong> kids: <%= booking.kids_number %> </p>
                 </div>
-
+                <div class="notification-content">
+                  <p><% booking.review.content %></p>
+                </div>
                 <div class="notification-actions-btn">
                   <a><%= link_to("accept", accept_booking_path(booking), method: :patch, class: "accept-btn #{booking.status == 'accepted' ? 'confirmed' : ''}") %> </a>
                   <a><%= link_to("reject", reject_booking_path(booking), method: :patch, class: "reject-btn #{booking.status == 'rejected' ? 'confirmed' : ''}") %> <!-- <i class="far fa-times-circle"></i> --></a>
                 </div>
+                <% end %>
             </div>
             <br>
             <% end %>
@@ -74,7 +77,7 @@
                   <% end %>
                 </div>
             <br>
-          <% end %>
+            <% end %>
          </div>
         </div>
       </div>

@@ -19,7 +19,7 @@
           </div>
           <div>
             <p><strong>Rate: </strong><%=@nanny.price_per_hour%>€ per hour</p>
-            <p><strong>Age: </strong><%= @nanny.age %> years old</p>
+            <p><strong>Age: </strong><%= @nanny.age %></p>
           </div>
         </div>
       <div><%= link_to "Book now!", new_nanny_booking_path(@nanny), class: "btn btn-success w-100" %></div>

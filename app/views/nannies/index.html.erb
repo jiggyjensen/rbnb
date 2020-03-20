@@ -29,9 +29,13 @@
         <div class="card-body">
           <div class="card-see-more text-center">
             <p class="user-name"><%= nanny.user.name %></p>
-            <p class="user-name"><%= nanny.city %></p>
-            <%#= link_to "See More", nanny_path(nanny), class: "btn btn-primary btn-black btn-submit" %>
           </div>
+          <div class="d-flex justify-content-between">
+            <p class="city-name ml-3"><%= nanny.city %></p>
+            <!-- <p class="mr-3"><%#= nanny.booking.review.rating %><i class="fas fa-star m-1 "></i></p> -->
+          </div>
+            <%#= link_to "See More", nanny_path(nanny), class: "btn btn-primary btn-black btn-submit" %>
+
         </div>
       </div>
       <% end %>

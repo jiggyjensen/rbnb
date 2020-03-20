@@ -5,6 +5,7 @@ class BookingsController < ApplicationController
       @bookings = current_user.nanny.bookings
     end
       @request_bookings = current_user.bookings
+      @review = Review.new
   end
 
   def accept

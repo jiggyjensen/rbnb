@@ -22,6 +22,7 @@ class NanniesController < ApplicationController
 
   def show
     @nanny = Nanny.find(params[:id])
+    @review = Review.new
     @markers = [{
 
       lat: @nanny.latitude,

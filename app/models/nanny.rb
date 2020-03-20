@@ -1,5 +1,6 @@
 class Nanny < ApplicationRecord
   has_many :bookings
+  has_many :reviews, through: :bookings
   belongs_to :user
   validates :user, uniqueness: true
   validates :price_per_hour, :description, :age, :city, presence: true

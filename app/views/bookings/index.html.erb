@@ -8,21 +8,21 @@
           <h1 class="text-center my-2"> dashboard </h1>
           <br>
           <div class="avatar-test">
-          <% @bookings.each do |f| %>
+          <% @bookings.each do |booking| %>
             <div class="notification">
-              <% if f.photo.attached? %>
-                <%= cl_image_tag f.photo.key, class:"avatar-large", height: 300, width: 400, crop: :fill %>
+              <% if booking.photo.attached? %>
+                <div style="background-image: url(<%= cl_image_path booking.photo.key %>)" class='avatar-large'> </div>
               <% else %>
                 <img src='https://kitt.lewagon.com/placeholder/users/random' class="avatar-large" />
               <% end %>
               <div class="notification-content">
-                <p><small> from <%= f.start_date.strftime("%m-%e-%y %H:%M") %> until <%= f.end_date.strftime("%m-%e-%y %H:%M") %> </small></p>
-                <p><%= f.message %> <strong>"<%= f.user.name %>"</strong> kids: <%= f.kids_number %> </p>
+                <p><small> from <%= booking.start_date.strftime("%m-%e-%y %H:%M") %> until <%= booking.end_date.strftime("%m-%e-%y %H:%M") %> </small></p>
+                <p><%= booking.message %> <strong>"<%= booking.user.name %>"</strong> kids: <%= booking.kids_number %> </p>
               </div>
 
-              <div class="notification-actions">
-                <a><%= link_to("accept", accept_booking_path(f), method: :patch) %> <i class="fas fa-pencil-alt"></i></a>
-                <a><%= link_to("reject", reject_booking_path(f), method: :patch) %> <i class="far fa-trash-alt"></i></a>
+              <div class="notification-actions-btn">
+                <a><%= link_to("accept", accept_booking_path(booking), method: :patch, class: "accept-btn #{booking.status == 'accepted' ? 'confirmed' : ''}") %> </a>
+                <a><%= link_to("reject", reject_booking_path(booking), method: :patch, class: "reject-btn #{booking.status == 'rejected' ? 'confirmed' : ''}") %> <!-- <i class="far fa-times-circle"></i> --></a>
               </div>
           </div>
           <br>
@@ -45,8 +45,8 @@
         <div class="avatar-test">
           <% @request_bookings.each do |f| %>
             <div class="notification">
-              <% if f.photo.attached? %>
-                <%= cl_image_tag f.photo.key, class:"avatar-large", height: 300, width: 400, crop: :fill %>
+              <% if f.nanny.photo.attached? %>
+                <div style="background-image: url(<%= cl_image_path f.nanny.photo.key %>)" class='avatar-large'> </div>
               <% else %>
                 <img src='https://kitt.lewagon.com/placeholder/users/random' class="avatar-large" />
               <% end %>
@@ -54,8 +54,8 @@
                   <p><small> from <%= f.start_date.strftime("%m-%e-%y %H:%M") %> until <%= f.end_date.strftime("%m-%e-%y %H:%M") %> </small></p>
                   <p><%= f.nanny.description %> <strong>"<%= f.nanny.user.name %>"</strong></p>
               </div>
-              <div class="notification-actions">
-                  <a href="#"><%= f.status %> <i class="fas fa-pencil-alt"></i></a>
+              <div class="notification-actions <%= f.color %>">
+                  <a href="#"><%= f.status %> </a>
               </div>
             </div>
             <br>

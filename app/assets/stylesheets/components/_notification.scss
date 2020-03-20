@@ -41,8 +41,8 @@
 }
 
 .notification .notification-actions a {
-   color: #4A4A4A;
-  margin-left: 16px;
+  color: white;
+
   font-size: 14px;
   font-weight: lighter;
 }
@@ -50,3 +50,50 @@
 .notification .notification-actions a:hover {
   color: #555555;
 }
+
+.accept-btn {
+  border: 1px solid lightgreen;
+  padding: 8px 24px;
+  border-radius: 50px;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+  margin-left: 8px;
+}
+
+.reject-btn {
+  border: 1px solid #C31100;
+  padding: 8px 24px;
+  border-radius: 50px;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+  margin-left: 16px;
+}
+
+.notification .notification-actions-btn {
+
+  padding: 8px 24px;
+  transition: opacity 0.3s ease;
+
+}
+
+.accept-btn.confirmed {
+  background-color: #41A029;
+  color: white;
+}
+
+.reject-btn.confirmed {
+  background-color: #C31100;
+  color: white;
+}
+
+.green {
+  background-color: #41A029;
+  color: white;
+}
+
+.red {
+  background-color: #C31100;
+  color: white;
+}
+
+

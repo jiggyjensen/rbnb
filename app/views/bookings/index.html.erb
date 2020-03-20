@@ -20,11 +20,14 @@
                   <p><small> from <%= booking.start_date.strftime("%m-%e-%y %H:%M") %> until <%= booking.end_date.strftime("%m-%e-%y %H:%M") %> </small></p>
                   <p><%= booking.message %> <strong>"<%= booking.user.name %>"</strong> kids: <%= booking.kids_number %> </p>
                 </div>
-
+                <div class="notification-content">
+                  <p><% booking.review.content %></p>
+                </div>
                 <div class="notification-actions-btn">
                   <a><%= link_to("accept", accept_booking_path(booking), method: :patch, class: "accept-btn #{booking.status == 'accepted' ? 'confirmed' : ''}") %> </a>
                   <a><%= link_to("reject", reject_booking_path(booking), method: :patch, class: "reject-btn #{booking.status == 'rejected' ? 'confirmed' : ''}") %> <!-- <i class="far fa-times-circle"></i> --></a>
                 </div>
+                <% end %>
             </div>
             <br>
             <% end %>
@@ -45,36 +48,39 @@
           <br>
           <div class="avatar-test">
             <% @request_bookings.each do |f| %>
-            <%= link_to nanny_path(f.nanny) do  %>
-              <div class="notification">
-                <% if f.nanny.photo.attached? %>
-                  <div style="background-image: url(<%= cl_image_path f.nanny.photo.key %>)" class='avatar-large'> </div>
-                <% else %>
-                  <img src='https://kitt.lewagon.com/placeholder/users/random' class="avatar-large" />
+              <%= link_to nanny_path(f.nanny) do  %>
+                <div class="notification">
+                  <% if f.nanny.photo.attached? %>
+                    <div style="background-image: url(<%= cl_image_path f.nanny.photo.key %>)" class='avatar-large'> </div>
+                  <% else %>
+                    <img src='https://kitt.lewagon.com/placeholder/users/random' class="avatar-large" />
+                  <% end %>
                 <% end %>
-                <% end %>
-                <div class="notification-content">
-                    <p><small> from <%= f.start_date.strftime("%m-%e-%y %H:%M") %> until <%= f.end_date.strftime("%m-%e-%y %H:%M") %> </small></p>
-                    <p><%= f.nanny.description %> <strong>"<%= f.nanny.user.name %>"</strong></p>
-                </div>
-                <div class="notification-actions <%= f.color %>">
-                    <p> <%= f.status %> </p>
-                </div>
+                  <div class="notification-content">
+                      <p><small> from <%= f.start_date.strftime("%m-%e-%y %H:%M") %> until <%= f.end_date.strftime("%m-%e-%y %H:%M") %> </small></p>
+                      <p><%= f.nanny.description %> <strong>"<%= f.nanny.user.name %>"</strong></p>
+                  </div>
+                  <div class="notification-actions <%= f.color %>">
+                      <p> <%= f.status %> </p>
+                  </div>
+              <% end %>
               <div class="review">
                   <% if f.review %>
-              <%= f.review.content %>
-            <% f.review.rating.times do %>
-            <i class="fas fa-star m-1 "></i>
-            <% end %>
-            </div>
-              <% elsif f.status == "accepted" %>
-              <%= render 'reviews/form', booking: f, review: @review %>
-              <% end %>
+                    <%= f.review.content %>
+                    <% f.review.rating.times do %>
+                    <i class="fas fa-star m-1 "></i>
+                    <% end %>
+                  <%end %>
+              </div>
+                  <% if f.status == "accepted" %>
+                    <%= render 'reviews/form', booking: f, review: @review %>
+                  <% end %>
             </div>
             <br>
-          <% end %>
+            <% end %>
          </div>
         </div>
       </div>
     </div>
   <% end %>
+<% end %>

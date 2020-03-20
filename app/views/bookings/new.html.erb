@@ -6,7 +6,7 @@
         <%= simple_form_for [@nanny, @booking] do |f| %>
         <div class="short_input">
         <%= f.input :address %>
-        <%= f.input :kids_number, input_html: { min: "0" } %>
+        <%= f.input :kids_number, input_html: { min: "0" }, label: "number of kids" %>
         <%= f.input :message %>
         <%= f.input :start_date %>
         <%= f.input :end_date %>

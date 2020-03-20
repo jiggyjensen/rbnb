@@ -8,7 +8,7 @@
     <button type="button" class="btn btn-success">Find a Nanny</button>
     <% end %>
     <% if current_user&.nanny %>
-    <%= link_to root_path do %>
+    <%= link_to bookings_path do %>
     <button type="button" class="btn btn-primary btn-submit">My Dashboard</button>
     <% end %>
     <% else %>

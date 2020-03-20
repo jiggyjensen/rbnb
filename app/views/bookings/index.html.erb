@@ -66,9 +66,13 @@
                 </div>
               </div>
                   <% if f.review %>
-                    <div class="review mx-3">
+                    <div class="review">
+                      <div id='review-content'>
                     <%= f.review.content %>
+                      </div>
+                      <div id='review-rating'>
                     <% f.review.rating.times do %>
+                      </div>
                       <i class="fas fa-star m-1 "></i>
                     <% end %>
                     </div>

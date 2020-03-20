@@ -46,6 +46,7 @@
           <div class="avatar-test">
             <% @request_bookings.each do |f| %>
             <%= link_to nanny_path(f.nanny) do  %>
+            <div class="notification-review">
               <div class="notification">
                 <% if f.nanny.photo.attached? %>
                   <div style="background-image: url(<%= cl_image_path f.nanny.photo.key %>)" class='avatar-large'> </div>
@@ -60,17 +61,18 @@
                 <div class="notification-actions <%= f.color %>">
                     <p> <%= f.status %> </p>
                 </div>
-              <div class="review">
+              </div>
                   <% if f.review %>
-              <%= f.review.content %>
-            <% f.review.rating.times do %>
-            <i class="fas fa-star m-1 "></i>
-            <% end %>
-            </div>
-              <% elsif f.status == "accepted" %>
-              <%= render 'reviews/form', booking: f, review: @review %>
-              <% end %>
-            </div>
+                    <div class="review mx-3">
+                    <%= f.review.content %>
+                    <% f.review.rating.times do %>
+                      <i class="fas fa-star m-1 "></i>
+                    <% end %>
+                    </div>
+                  <% elsif f.status == "accepted" %>
+                    <%= render 'reviews/form', booking: f, review: @review %>
+                  <% end %>
+                </div>
             <br>
           <% end %>
          </div>
@@ -78,3 +80,4 @@
       </div>
     </div>
   <% end %>
+</div>

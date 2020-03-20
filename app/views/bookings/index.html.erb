@@ -1,4 +1,4 @@
-<div class="sign-up-wrapper" style="background-image: url(https://res.cloudinary.com/dvallavgs/image/upload/v1584706887/test_rxhtzk.jpg)">
+<div id="height_adj_banner" class="sign-up-wrapper" style="background-image: url(https://res.cloudinary.com/dvallavgs/image/upload/v1584706887/test_rxhtzk.jpg)">
   <% if current_user.nanny %>
 
 
@@ -6,7 +6,7 @@
       <div class="row">
         <div class="col">
           <% if current_user.nanny.bookings.any? %>
-            <h1 class="btn-dash text-center"> dashboard </h1>
+            <h1 class="btn-dash text-center"> My dashboard </h1>
             <br>
             <div class="avatar-test">
             <% @bookings.each do |booking| %>
@@ -41,7 +41,7 @@
     <div class="container">
       <div class="row">
         <div class="col">
-          <h1 class="text-center my-2"> dashboard </h1>
+          <h1 class="btn-dash text-center"> My dashboard </h1>
           <br>
           <div class="avatar-test">
             <% @request_bookings.each do |f| %>

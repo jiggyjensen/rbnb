@@ -1,13 +1,8 @@
 .card-image {
-  height: 250px;
-  padding: 15px;
-  background: #ecdfc8;
   box-shadow: 20px 20px 30px rgba(0,0,0,0.1);
-  text-align: center;
-  margin: 20px auto;
-  width: 350px;
-  border-radius: 4px;
-  object-fit: center;
+  border-radius: 50%;
+  object-fit: cover;
+
 
 }
 
@@ -105,4 +100,11 @@ a {
 
 .card-product .card-product-infos {
   padding: 16px;
+}
+
+
+.card-show {
+  border: solid 1px $primary;
+  border-radius: 4px;
+  padding: 30px;
 }
